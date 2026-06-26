@@ -10,17 +10,16 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Run SonarScanner
         shell: cmd
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           sonar-scanner ^
           -Dsonar.projectKey=demo-project ^
           -Dsonar.sources=. ^
           -Dsonar.host.url=%SONAR_HOST_URL% ^
           -Dsonar.token=%SONAR_TOKEN%
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
