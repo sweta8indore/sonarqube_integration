@@ -12,6 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug Runner
+        shell: cmd
+        run: |
+          echo ==== PATH ====
+          echo %PATH%
+          echo.
+          echo ==== JAVA ====
+          where java
+          java -version
+          echo.
+          echo ==== SONAR ====
+          where sonar-scanner
+          dir C:\tools\sonar-scanner-8.0.1.6346-windows-x64\bin
+
       - name: Run SonarScanner
         shell: cmd
         env:
