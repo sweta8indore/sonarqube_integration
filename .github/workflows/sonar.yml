@@ -24,8 +24,8 @@ jobs:
           echo.
           echo ==== SONAR ====
           where sonar-scanner
-          dir C:\tools\sonar-scanner-8.0.1.6346-windows-x64\bin
-
+          dir C:\tools\sonar-scanner-8.0.1.6346-windows-x64\bin\sonar-scanner.bat
+          
       - name: Run SonarScanner
         shell: cmd
         env:
